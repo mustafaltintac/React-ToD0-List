@@ -1,0 +1,94 @@
+.pasive-task-display{
+    width: 250px;
+    max-height: 300px;
+    overflow: auto;
+    border: 3px solid green;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(70, 175, 207);
+
+}
+.active-task-display{
+    width: 250px;
+    max-height: 300px;
+    overflow: auto;
+    border: 3px solid green;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(70, 207, 70);
+
+}
+.guncelle-button{
+    border: 3px solid rgb(236, 233, 29);
+    border-radius: 5px;
+    background-color: rgb(236, 233, 29);
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    min-width: 50%;
+
+}
+.tamamla-button{
+    border: 3px solid blue;
+    border-radius: 5px;
+    background-color: blue;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    min-width: 50%;
+}
+.sil-button{
+    border: 3px solid red;
+    border-radius: 5px;
+    background-color: red;
+    padding: 5px;
+    margin: 5px;
+    color:white;
+    min-width: 40%;
+    
+}
+.tamamla-button{
+    border: 3px solid blue;
+    border-radius: 5px;
+    background-color: blue;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    min-width: 50%;
+}
+.pasive-title{
+    padding: 10px;
+    min-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.active-title{
+    padding: 10px;
+    min-height: 20px;
+    text-align: center;
+    text-decoration: line-through;
+    text-transform: uppercase;
+
+}
+.pasive-desc{
+    padding: 10px;
+    min-height: 20px;
+    text-align: center;
+}
+.pasive-desc::first-letter {
+    text-transform: uppercase;
+  }
+.active-desc{
+    padding: 10px;
+    min-height: 20px;
+    text-align: center;
+}
+.active-desc::first-letter {
+    text-transform: uppercase;
+  }
