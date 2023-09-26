@@ -30,6 +30,25 @@
     border-radius: 10px;
     font-size: 20px;
 }
+.task-button-2{
+    border: 1px solid black;
+    padding: 6px;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    font-size: 10px;
+    height: 40px;
+
+}
+
+.task-input-2{
+    height: 20px;
+    padding: 8px;
+    border-radius: 1px solid black;
+    border-radius: 10px;
+    margin-left: 140px;
+
+}
 
 .task-list{
     margin: 10px;
@@ -38,3 +57,5 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+

@@ -92,3 +92,14 @@
 .active-desc::first-letter {
     text-transform: uppercase;
   }
+  .active-input{
+    background-color: rgb(70, 207, 70);
+    border: 0px;
+    border-color:  rgb(70, 207, 70);
+
+  }
+  .pasive-input{
+    background-color: rgb(70, 207, 70); 
+    border: 0px;
+    border-color:  rgb(70, 207, 70);
+  }
