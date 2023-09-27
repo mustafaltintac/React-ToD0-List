@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 
-function TaskDisplay({ completeTask, deleteTask, task  }) {
+function TaskDisplay({ completeTask, deleteTask, task , upDate,focus }) {
 
 
   const HandleComplateSubmit = (event) => {
@@ -11,6 +11,9 @@ function TaskDisplay({ completeTask, deleteTask, task  }) {
   const HandleSubmit = (event) => {
     deleteTask(Number(event.target.id));
   };
+
+
+
 
 
   
@@ -36,6 +39,15 @@ function TaskDisplay({ completeTask, deleteTask, task  }) {
         value="Tamamla"
         id={task?.id}
         onClick={HandleComplateSubmit}
+      />
+      <input
+        className="sil-button"
+        type="button"
+        id={task?.id}
+        title={task?.title}
+        tascDesc={task?.tascDesc}
+        value="Güncelle"
+
       />
       <input
         className="sil-button"

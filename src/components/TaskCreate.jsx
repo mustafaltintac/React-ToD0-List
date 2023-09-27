@@ -32,6 +32,7 @@ function TaskCreate(props) {
   const handleTextChange = (event) => {
     setTaskDesc(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -47,6 +48,7 @@ function TaskCreate(props) {
     }
     props.focus();
   };
+
 
  
   return (

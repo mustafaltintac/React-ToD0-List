@@ -1,15 +1,44 @@
-import { useState } from "react";
-import React, { useRef } from "react";
+import React, { useRef,useState,useEffect } from "react";
 
 import "./App.css";
 import TaskCreate from "./components/TaskCreate";
 import TaskList from "./components/TaskList";
+import axios from "axios"
+
+
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [filterTask, setFilterTask] = useState([]);
   const inputRefTask = useRef(null);
   const [flag,setFlag]=useState(false)
+
+
+
+  const createTask = async (title, tascDesc) => {
+  const response = await axios.post('http://localhost:3004/tasks',{
+  title:title,
+  tascDesc:tascDesc,
+  isCompleted: false,
+  isInput: false,
+})
+    if(title!==""){
+      const createTasks = [...tasks, response.data];
+      setTasks(createTasks);
+    }
+    else{
+      alert("BAŞLIK GİRMEDİNİZ")
+    }
+  };
+
+  const fetchTask= async ()=>{
+    const response= await axios.get("http://localhost:3004/tasks")
+    setTasks(response.data)
+   }
+ 
+   useEffect(()=>{
+     fetchTask()
+   },[])
 
   const filter=(text)=>{
     if(text!==""){
@@ -30,39 +59,16 @@ function App() {
     }
     }
 
-  const createTask = (title, tascDesc) => {
-    if(title!==""){
-      const newTask = {
-        id: Math.round(Math.random() * 99999999),
-        title: title,
-        tascDesc: tascDesc,
-        isCompleted: false,
-        isInput: false,
-      };
-      const createTasks = [...tasks, newTask];
-      setTasks(createTasks);
-    }
-    else{
-      alert("BAŞLIK GİRMEDİNİZ")
-    }
+  const deleteTask = async (id) => {
 
-  };
+  await axios.delete(`http://localhost:3004/tasks/${id}`)
 
-  const deleteTask = (id) => {
     const selectedTaskId = tasks.findIndex((obj) => obj.id == id);
     tasks.splice(Number(selectedTaskId), 1);
     setTasks([...tasks])
 
-    const selectedTaskId2 = filterTask.findIndex((obj) => obj.id == id);
-    filterTask.splice(Number(selectedTaskId2), 1);
-    if(filterTask.length<1){
-      setFilterTask([...tasks]);
+    if(tasks.length<1){
       alert("LİSTEDİNİZDE TASK KALMADI")
-
-    }
-    else{
-      setFilterTask([...filterTask]);
-
     }
   };
 
@@ -76,8 +82,6 @@ function App() {
     inputRefTask.current.focus();
   };
 
-
-
   return (
     <div className="App">
       <TaskCreate
@@ -86,6 +90,7 @@ function App() {
         inputRefTask={inputRefTask}
         focus={focus}
         filter={filter}
+
       />
       <h1>GÖREVLER</h1>
 
