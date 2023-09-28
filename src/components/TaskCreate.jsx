@@ -1,6 +1,11 @@
-import {  useState } from "react";
+import {  useContext, useState } from "react";
+import TaskContext from "../context/task";
 
-function TaskCreate(props) {
+
+
+function TaskCreate() {
+
+  const {tasks,filter,createTask,focus,inputRefTask} = useContext(TaskContext)
 
   const [title, setTitle] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
@@ -18,12 +23,12 @@ function TaskCreate(props) {
 
   const handleClickFilter=(event)=>{
     event.preventDefault();
-    props.filter(filterText);
+    filter(filterText);
     setFilterText("")
   }
   const handleClickFilter2=(event)=>{
     event.preventDefault();
-    props.filter("");
+    filter("");
 
 
   }
@@ -36,17 +41,17 @@ function TaskCreate(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (props.tasks.find( (nesne) => {
+    if (tasks.find( (nesne) => {
       return nesne.title == title}))
       {
       alert("AYNI TASK BAŞLIĞI GİRDİNİZ")
       }
     else {
-      props.createTask(title, taskDesc);
+      createTask(title, taskDesc);
       setTitle("");
       setTaskDesc("");
     }
-    props.focus();
+    focus();
   };
 
 
@@ -56,7 +61,7 @@ function TaskCreate(props) {
       <h1> Lütfen Task Ekleyiniz</h1>
       <form className="task-form">
         <label className="task-label"> Lütfen Başlık Giriniz</label>
-        <input  ref={props.inputRefTask} className="task-input" value={title} onChange={handleChange}  />  
+        <input  ref={inputRefTask} className="task-input" value={title} onChange={handleChange}  />  
         <label className="task-label"> Task Giriniz</label>
         <textarea
           className="task-input"

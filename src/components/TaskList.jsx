@@ -1,13 +1,26 @@
 import TaskDisplay from "./TaskDisplay";
+import { useContext } from "react";
+
+import TaskContext from "../context/task";
 import "./TaskDisplay.css";
 
-function TaskList({ tasks,completeTask,deleteTask,focus,  }) {
+function TaskList() {
+
+  const {tasks,flag,filterTask} = useContext(TaskContext)
+
+  console.log(tasks)
+  console.log(flag)
+  console.log(filterTask)
+
+
+  let tasksToRender = flag ? filterTask : tasks ;
+
 
   return (
     <div className="task-list">
-      {tasks.map((task, index) => {
+      {tasksToRender.map((task, index) => {
         return (
-          <TaskDisplay key={index} task={task}  completeTask={completeTask} deleteTask={deleteTask} focus={focus}    />
+          <TaskDisplay key={index} task={task}     />
         );
       })}
     </div>

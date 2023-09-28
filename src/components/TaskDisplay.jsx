@@ -1,22 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useContext } from 'react';
+import TaskContext from '../context/task';
 
 
-function TaskDisplay({ completeTask, deleteTask, task , upDate,focus }) {
+function TaskDisplay({task}) {
 
+const {completeTask,deleteTask} = useContext(TaskContext)
 
   const HandleComplateSubmit = (event) => {
     completeTask(Number(event.target.id));
   };
-
   const HandleSubmit = (event) => {
     deleteTask(Number(event.target.id));
   };
-
-
-
-
-
-  
   return (
     <div 
       className={
@@ -39,15 +34,6 @@ function TaskDisplay({ completeTask, deleteTask, task , upDate,focus }) {
         value="Tamamla"
         id={task?.id}
         onClick={HandleComplateSubmit}
-      />
-      <input
-        className="sil-button"
-        type="button"
-        id={task?.id}
-        title={task?.title}
-        tascDesc={task?.tascDesc}
-        value="Güncelle"
-
       />
       <input
         className="sil-button"

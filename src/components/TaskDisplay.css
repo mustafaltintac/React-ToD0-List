@@ -32,15 +32,7 @@
     min-width: 50%;
 
 }
-.tamamla-button{
-    border: 3px solid blue;
-    border-radius: 5px;
-    background-color: blue;
-    padding: 5px;
-    margin: 5px;
-    color: white;
-    min-width: 50%;
-}
+
 .sil-button{
     border: 3px solid red;
     border-radius: 5px;
@@ -49,6 +41,7 @@
     margin: 5px;
     color:white;
     min-width: 40%;
+    cursor: pointer;
     
 }
 .tamamla-button{
@@ -59,6 +52,7 @@
     margin: 5px;
     color: white;
     min-width: 50%;
+    cursor: pointer;
 }
 .pasive-title{
     padding: 10px;
